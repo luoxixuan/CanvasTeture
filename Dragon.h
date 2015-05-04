@@ -9,15 +9,20 @@ private:
 public:
 	Dragon();
 	~Dragon();
-	//运算符
+	// 运算符重载
 	bool operator<=(Dragon & a)const;
-	//只读读取器
+	// 读取器
 	float Y()const;
 	float X()const;
 	int Dir()const;
-	//写入器
+	// 写入器
 	float Y(float yTmp);
 	float X(float xTmp);
 	int Dir(int   dirTmp);
+	// 更新
+	void update();
+private:
+	// move the dragon
+	void move(float xAdd, float yAdd);
 };
 
