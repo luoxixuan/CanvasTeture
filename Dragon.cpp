@@ -22,7 +22,7 @@ bool Dragon::operator <=(Dragon & a) const
 		return false;
 }
 
-// Ö»¶Á
+// ¶Á
 float Dragon::Y()const
 {
 	return y;

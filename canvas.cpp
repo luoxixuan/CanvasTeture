@@ -20,7 +20,8 @@ HWND	hWnd;
 DWORD	tPre, tNow;
 int		picNum;
 //dragon  dra[draNum];   //按照draNum的值建立数组dra[]，产生画面上出现的恐龙。
-vector<Dragon> dra;   //按照draNum的值建立数组dra[]，产生画面上出现的恐龙。
+vector<Dragon> dra(draNum);   //按照draNum的值建立向量dra，产生画面上出现的恐龙。
+//array<Dragon, draNum> dra;
 int clockRecord;
 
 //全局函数声明
@@ -121,29 +122,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	draPic[3] = (HBITMAP)LoadImage(NULL, "dra3.bmp", IMAGE_BITMAP, 760, 198, LR_LOADFROMFILE);
 	bg = (HBITMAP)LoadImage(NULL, "bg.bmp", IMAGE_BITMAP, 640, 480, LR_LOADFROMFILE);
 
-	// 设定所有恐龙初始的贴图坐标都为（200,200），初始的移动方向都为向左。
-	draInit(draNum, dra);
-
 	MyPaint(hdc);
 
 	return TRUE;
-}
-// 恐龙初始化
-void draInit(int arrSize, vector<Dragon> & sortVec)
-{
-	//Dragon draTmp;
-
-	for (size_t i = 0; i < arrSize; i++)
-	{
-		Dragon draTmp;							// 创建临时恐龙对象
-		sortVec.push_back(draTmp);				// 写入数组中
-	}
-
-	clockRecord = clock();
-
-	mergeSort(sortVec);							// 初始化排序
-
-	std::cout << "Dragon向量算法运行时间:\t" << (clock() - clockRecord) << "ms" << std::endl;
 }
 
 //起泡排序
